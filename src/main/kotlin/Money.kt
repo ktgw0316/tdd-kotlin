@@ -1,6 +1,11 @@
 package money
 
+import java.util.Currency
+
 abstract class Money(private val amount: Int) {
+
+    abstract val currency: String
+
     override fun equals(other: Any?): Boolean {
         return other is Money
                 && this::class == other::class

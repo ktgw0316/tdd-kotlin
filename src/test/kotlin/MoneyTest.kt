@@ -40,4 +40,12 @@ class MoneyTest : FreeSpec({
             franc(5) shouldNotBe dollar(5)
         }
     }
+    "Currency" - {
+        "USD" {
+            dollar(1).currency shouldBe "USD"
+        }
+        "CHF" {
+            franc(1).currency shouldBe "CHF"
+        }
+    }
 })
