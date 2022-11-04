@@ -16,4 +16,9 @@ class MoneyTest : FreeSpec({
             product.amount shouldBe 15
         }
     }
+    "Equality" - {
+        "$5 = $5" {
+            (Dollar(5) == Dollar(5)) shouldBe true
+        }
+    }
 })
