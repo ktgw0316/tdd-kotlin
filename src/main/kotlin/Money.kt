@@ -10,6 +10,7 @@ class Money(private val amount: Int, val currency: String) {
     }
 
     operator fun times(multiplier: Int) = Money(amount * multiplier, currency)
+    operator fun plus(other: Money): Money = TODO()
 
     companion object {
         fun dollar(amount: Int): Money {
