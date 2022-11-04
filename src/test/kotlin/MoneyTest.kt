@@ -48,4 +48,9 @@ class MoneyTest : FreeSpec({
             franc(1).currency shouldBe "CHF"
         }
     }
+    "Addition" - {
+        "$5 + $5 = $10" {
+            dollar(5) + dollar(5) shouldBe dollar(10)
+        }
+    }
 })
