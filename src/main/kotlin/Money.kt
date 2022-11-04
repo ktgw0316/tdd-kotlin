@@ -5,6 +5,7 @@ class Money(private val amount: Int, val currency: String) {
     override fun equals(other: Any?): Boolean {
         return other is Money
                 && this::class == other::class
+                && currency == other.currency
                 && amount == other.amount
     }
 
