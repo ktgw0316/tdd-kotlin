@@ -8,4 +8,14 @@ abstract class Money(private val amount: Int) {
     }
 
     abstract operator fun times(multiplier: Int): Money
+
+    companion object {
+        fun dollar(amount: Int): Money {
+            return Dollar(amount)
+        }
+
+        fun franc(amount: Int): Money {
+            return Franc(amount)
+        }
+    }
 }
