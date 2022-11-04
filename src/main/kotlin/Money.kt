@@ -1,10 +1,6 @@
 package money
 
-import java.util.Currency
-
-abstract class Money(private val amount: Int) {
-
-    abstract val currency: String
+class Money(private val amount: Int, val currency: String) {
 
     override fun equals(other: Any?): Boolean {
         return other is Money
@@ -12,15 +8,15 @@ abstract class Money(private val amount: Int) {
                 && amount == other.amount
     }
 
-    abstract operator fun times(multiplier: Int): Money
+    operator fun times(multiplier: Int) = Money(amount * multiplier, currency)
 
     companion object {
         fun dollar(amount: Int): Money {
-            return Dollar(amount)
+            return Money(amount, "USD")
         }
 
         fun franc(amount: Int): Money {
-            return Franc(amount)
+            return Money(amount, "CHF")
         }
     }
 }
