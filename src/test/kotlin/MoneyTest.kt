@@ -8,17 +8,18 @@ class MoneyTest : FreeSpec({
     "Multiplication" - {
         val five = Dollar(5)
         "$5 * 2 = $10" {
-            val product = five * 2
-            product.amount shouldBe 10
+            (five * 2 == Dollar(10)) shouldBe true
         }
         "$5 * 3 = $15" {
-            val product = five * 3
-            product.amount shouldBe 15
+            (five * 3 == Dollar(15)) shouldBe true
         }
     }
     "Equality" - {
         "$5 = $5" {
             (Dollar(5) == Dollar(5)) shouldBe true
+        }
+        "$5 != $6" {
+            (Dollar(5) == Dollar(6)) shouldBe false
         }
     }
 })
