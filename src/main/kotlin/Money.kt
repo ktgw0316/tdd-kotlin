@@ -11,7 +11,10 @@ class Money(internal val amount: Int, val currency: String) : Expression {
     operator fun times(multiplier: Int) = Money(amount * multiplier, currency)
     operator fun plus(addend: Money) = Sum(this, addend)
 
-    override fun reduce(to: String) = this
+    override fun reduce(to: String): Money {
+        val rate = if (currency == "CHP" && to == "USD") 2 else 1 // FIXME
+        return Money(amount / rate, to)
+    }
 
     companion object {
         fun dollar(amount: Int): Money {

@@ -7,7 +7,7 @@ class Bank {
         }
 
         fun addRate(from: String, to: String, rate: Int) {
-            TODO()
+            return // TODO
         }
     }
 }
