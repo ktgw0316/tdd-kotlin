@@ -50,7 +50,10 @@ class MoneyTest : FreeSpec({
     }
     "Addition" - {
         "$5 + $5 = $10" {
-            dollar(5) + dollar(5) shouldBe dollar(10)
+            val five = dollar(5)
+            val sum = five + five
+            val reduced = Bank.reduce(sum, "USD")
+            reduced shouldBe dollar(10)
         }
     }
 })
