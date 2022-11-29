@@ -72,10 +72,15 @@ class MoneyTest : FreeSpec({
             val reduced = Bank.reduce(dollar(1), "USD")
             reduced shouldBe dollar(1)
         }
+    }
+    "Rate" - {
         "2 CHF reduce to $1" {
             Bank.addRate("CHF", "USD", 2)
             val reduced = Bank.reduce(franc(2), "USD")
             reduced shouldBe dollar(1)
+        }
+        "identity" {
+            Bank.rate("USD", "USD") shouldBe 1
         }
     }
 })
