@@ -56,4 +56,12 @@ class MoneyTest : FreeSpec({
             reduced shouldBe dollar(10)
         }
     }
+    "Reduction" - {
+        "$5 + $5 is Sum" {
+            val five = dollar(5)
+            val sum = five + five
+            sum.augend shouldBe five
+            sum.addend shouldBe five
+        }
+    }
 })
