@@ -9,9 +9,13 @@ class Bank {
             return expression.reduce(currency)
         }
 
-        fun addRate(from: String, to: String, rate: Int) = rates.put(Pair(from, to) , rate)
+        fun addRate(from: String, to: String, rate: Int) {
+            assert(from != to) {"Cannot add rate between the same currencies."}
+            rates.put(Pair(from, to) , rate)
+        }
 
         fun rate(from: String, to: String): Int {
+            if (from == to) return 1
             return rates.get(Pair(from, to)) ?: 1
         }
     }
