@@ -1,7 +1,6 @@
 package money
 
-class Money(private val amount: Int, val currency: String) : Expression {
-
+class Money(internal val amount: Int, val currency: String) : Expression {
     override fun equals(other: Any?): Boolean {
         return other is Money
                 && this::class == other::class
@@ -11,6 +10,8 @@ class Money(private val amount: Int, val currency: String) : Expression {
 
     operator fun times(multiplier: Int) = Money(amount * multiplier, currency)
     operator fun plus(addend: Money) = Sum(this, addend)
+
+    override fun reduce(to: String) = TODO("not implemented")
 
     companion object {
         fun dollar(amount: Int): Money {
