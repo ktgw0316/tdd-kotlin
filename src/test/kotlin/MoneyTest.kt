@@ -36,12 +36,6 @@ class MoneyTest : FreeSpec({
         "$5 != $6" {
             dollar(5) shouldNotBe dollar(6)
         }
-        "5 Franc = 5 Franc" {
-            franc(5) shouldBe franc(5)
-        }
-        "5 Franc != 6 Franc" {
-            franc(5) shouldNotBe franc(6)
-        }
         "5 Franc != $5" {
             franc(5) shouldNotBe dollar(5)
         }
