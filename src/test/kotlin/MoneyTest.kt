@@ -1,6 +1,7 @@
 package money
 
 import io.kotest.core.spec.style.FreeSpec
+import io.kotest.property.checkAll
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 
@@ -11,21 +12,17 @@ class MoneyTest : FreeSpec({
 
     "Multiplication" - {
         "Dollar" - {
-            val five = dollar(5)
-            "$5 * 2 = $10" {
-                five * 2 shouldBe dollar(10)
-            }
-            "$5 * 3 = $15" {
-                five * 3 shouldBe dollar(15)
+            "$(a) * b = $(a * b)" {
+                checkAll<Int, Int> { a, b ->
+                    dollar(a) * b shouldBe dollar(a * b)
+                }
             }
         }
         "Franc" - {
-            val five = franc(5)
-            "$5 * 2 = $10" {
-                five * 2 shouldBe franc(10)
-            }
-            "$5 * 3 = $15" {
-                five * 3 shouldBe franc(15)
+            "$(a)* b = $(a * b)" {
+                checkAll<Int, Int> { a, b ->
+                    franc(a) * b shouldBe franc(a * b)
+                }
             }
         }
     }
